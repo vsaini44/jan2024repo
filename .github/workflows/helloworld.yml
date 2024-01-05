@@ -7,4 +7,6 @@ jobs:
       - name: step1
         run: echo "Hello World!"
       - name: step2
+        run: sleep 5
+      - name: step3
         run: echo "goodbye"
