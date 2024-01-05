@@ -3,7 +3,7 @@ on: push
 
 jobs:
   deploy:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     steps:
       - name: checkout the files
         uses: actions/checkout@v4
