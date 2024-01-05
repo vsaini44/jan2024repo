@@ -10,7 +10,8 @@ jobs:
       - name: setup jdk in the server
         uses: actions/setup-java@v4
         with: 
-          java-version: 11
+          distribution: 'zulu'
+          java-version: '21'
           
       - name:  step3
         run: java file1.jar
