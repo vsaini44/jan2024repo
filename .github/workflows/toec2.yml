@@ -1,0 +1,17 @@
+name: toec2workflow
+on: push 
+
+jobs:
+  deploy:
+    runs-on: ubuntu
+    steps:
+      - name: checkout the files
+        uses: actions/checkout@v4
+
+      - name: copy the code into the server 
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
