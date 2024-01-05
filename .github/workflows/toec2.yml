@@ -15,3 +15,18 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
+
+  
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.2
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            sudo apt update- -y
+            sudo apt install apache2 -y
+            sudo systemctl start apache2
+            cd datadir
+            sudo mv * /var/www/html
+            
